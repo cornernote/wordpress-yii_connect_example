@@ -22,7 +22,7 @@
         'type' => 'raw',
     );
     Yii::app()->controller->widget('zii.widgets.grid.CGridView', array(
-        'id' => 'card-grid',
+        'id' => 'ticket-grid',
         'dataProvider' => $ticket->search(),
         'filter' => $ticket,
         'columns' => $columns,

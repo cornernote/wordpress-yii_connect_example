@@ -59,6 +59,9 @@ class Ticket extends CActiveRecord
         return array(
             // search fields
             array('id, name', 'safe', 'on' => 'search'),
+
+            // name field
+            array('name', 'required', 'on' => 'create,update'),
         );
     }
 
@@ -85,6 +88,34 @@ class Ticket extends CActiveRecord
         return new CActiveDataProvider(get_class($this), array(
             'criteria' => $criteria,
         ));
+    }
+
+    /**
+     *
+     */
+    public function getUrl($action = 'view')
+    {
+        return 'admin.php?page=yii-connect-example-' . $action . '&id=' . $this->id;
+    }
+
+    /**
+     *
+     */
+    public function getLink($name = null, $action = 'view', $htmlOptions = array())
+    {
+        return CHtml::link(($name ? $name : $this->name), $this->getUrl($action), $htmlOptions);
+    }
+
+    /**
+     *
+     */
+    public function getActionLinks()
+    {
+        return array(
+            $this->getLink('View', 'view'),
+            $this->getLink('Edit', 'form'),
+            $this->getLink('Delete', 'delete', array('confirm' => 'Are you sure?')),
+        );
     }
 
 }

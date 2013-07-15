@@ -1,7 +1,6 @@
 <?php
 /**
  * @var $ticket Ticket
- *
  */
 ?>
 
@@ -10,7 +9,6 @@
     <h2>Yii Connect Example</h2>
 
     <?php
-    // columns
     $columns = array();
     $columns[] = array(
         'name' => 'id',
@@ -18,13 +16,16 @@
     $columns[] = array(
         'name' => 'name',
     );
-
-        echo $a;
-    //    Yii::app()->controller->widget('CGridView', array(
-    //        'id' => 'card-grid',
-    //        'dataProvider' => $ticket->search(),
-    //        'filter' => $ticket,
-    //        'columns' => $columns,
-    //    ));
+    $columns[] = array(
+        'header' => 'Actions',
+        'value' => 'implode(" | ", $data->getActionLinks())',
+        'type' => 'raw',
+    );
+    Yii::app()->controller->widget('zii.widgets.grid.CGridView', array(
+        'id' => 'card-grid',
+        'dataProvider' => $ticket->search(),
+        'filter' => $ticket,
+        'columns' => $columns,
+    ));
     ?>
 </div>

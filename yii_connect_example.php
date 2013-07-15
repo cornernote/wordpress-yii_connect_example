@@ -22,6 +22,11 @@ if (!function_exists('add_action')) {
     exit;
 }
 
+// ensure YiiConnect is loaded
+if (!defined('YII_CONNECT_VERSION') || !YiiConnect::$loaded) {
+    return;
+}
+
 // define constants
 define('YII_CONNECT_EXAMPLE_VERSION', '0.1.0');
 define('YII_CONNECT_EXAMPLE_URL', plugin_dir_url(__FILE__));

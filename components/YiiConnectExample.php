@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class YCExample
+ * Class YiiConnectExample
  */
-class YCExample extends YCPlugin
+class YiiConnectExample extends YCPlugin
 {
 
     /**

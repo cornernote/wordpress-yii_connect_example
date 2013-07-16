@@ -23,7 +23,7 @@ if (!function_exists('add_action')) {
 }
 
 // ensure YC is loaded
-if (!defined('YC_VERSION') || !YC::$loaded) {
+if (!defined('YC_VERSION') || !YiiConnect::$loaded) {
     return;
 }
 
@@ -33,10 +33,10 @@ define('YC_EXAMPLE_URL', plugin_dir_url(__FILE__));
 define('YC_EXAMPLE_PATH', plugin_dir_path(__FILE__));
 
 // load YCExample
-require_once(YC_EXAMPLE_PATH . 'components/YCExample.php');
+require_once(YC_EXAMPLE_PATH . 'components/YiiConnectExample.php');
 
 // set the view path
-YCExample::$basePath = str_replace('\\', '/', YC_EXAMPLE_PATH);
+YiiConnectExample::$basePath = str_replace('\\', '/', YC_EXAMPLE_PATH);
 
 // load the init
-add_action('init', 'YCExample::init');
+add_action('init', 'YiiConnectExample::init');

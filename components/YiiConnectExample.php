@@ -3,7 +3,7 @@
 /**
  * Class YiiConnectExample
  */
-class YiiConnectExample extends YiiConnectController
+class YiiConnectExample extends YiiConnectPlugin
 {
 
     /**

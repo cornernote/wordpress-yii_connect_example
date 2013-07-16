@@ -32,8 +32,6 @@ function yii_connect_example_init()
     }
     if (!class_exists('YiiConnect') || !YiiConnect::init() || empty(YiiConnect::$loaded)){
         define('YC_EXAMPLE_LOADED', false);
-        echo "<br/> loaded is false <br/>\r\n";
-        die;
         return;
         //return  new WP_Error('yii_connect', __("Yii Connect example can't work without using Yii Connect"));
     }

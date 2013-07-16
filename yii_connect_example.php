@@ -31,12 +31,22 @@ if (!defined('YC_VERSION') || !YiiConnect::$loaded) {
 define('YC_EXAMPLE_VERSION', '0.1.0');
 define('YC_EXAMPLE_URL', plugin_dir_url(__FILE__));
 define('YC_EXAMPLE_PATH', plugin_dir_path(__FILE__));
+return;
+function yii_connect_example_init()
+{
 
-// load YCExample
-require_once(YC_EXAMPLE_PATH . 'components/YiiConnectExample.php');
+    if (!class_exists('YiiConnect') || !empty(YiiConnect::$loaded)){
+        define('YC_EXAMPLE_LOADED', false);
+        return  new WP_Error('yii_connect', __("Yii Connect example can't work without using Yii Connect"));
+    }
+    define('YC_EXAMPLE_LOADED', true);
+    // load YCExample
+    require_once(YC_EXAMPLE_PATH . 'components/YiiConnectExample.php');
 
-// set the view path
-YiiConnectExample::$basePath = str_replace('\\', '/', YC_EXAMPLE_PATH);
+    // set the view path
+    YiiConnectExample::$basePath = str_replace('\\', '/', YC_EXAMPLE_PATH);
+    // load the init
+    YiiConnectExample::init();
+}
 
-// load the init
-add_action('init', 'YiiConnectExample::init');
+add_action('init', 'yii_connect_example_init');

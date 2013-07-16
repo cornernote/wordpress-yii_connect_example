@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class YiiConnectExample
+ * Class YCExample
  */
-class YiiConnectExample extends YiiConnectPlugin
+class YCExample extends YCPlugin
 {
 
     /**
@@ -15,8 +15,8 @@ class YiiConnectExample extends YiiConnectPlugin
 
         // add admin menu
         if (is_admin()) {
-            add_action('admin_menu', 'YiiConnectExample::adminMenu');
-            add_action('admin_enqueue_scripts', 'YiiConnectExample::registerScripts');
+            add_action('admin_menu', 'YCExample::adminMenu');
+            add_action('admin_enqueue_scripts', 'YCExample::registerScripts');
         }
     }
 
@@ -25,10 +25,10 @@ class YiiConnectExample extends YiiConnectPlugin
      */
     public static function adminMenu()
     {
-        add_menu_page('Yii Connect Example', 'Yii Connect Example', 'manage_options', 'yii-connect-example', 'YiiConnectExample::actionIndex', YII_CONNECT_EXAMPLE_URL . 'img/icon-menu.png', '11');
-        add_submenu_page('yii-connect-example', 'Create Ticket', 'Create', 'manage_options', 'yii-connect-example-form', 'YiiConnectExample::actionForm');
-        add_submenu_page(null, 'Yii Connect Example - View', 'View', 'manage_options', 'yii-connect-example-view', 'YiiConnectExample::actionView');
-        add_submenu_page(null, 'Yii Connect Example - Delete', 'Delete', 'manage_options', 'yii-connect-example-delete', 'YiiConnectExample::actionDelete');
+        add_menu_page('Yii Connect Example', 'Yii Connect Example', 'manage_options', 'yii-connect-example', 'YCExample::actionIndex', YC_EXAMPLE_URL . 'img/icon-menu.png', '11');
+        add_submenu_page('yii-connect-example', 'Create Ticket', 'Create', 'manage_options', 'yii-connect-example-form', 'YCExample::actionForm');
+        add_submenu_page(null, 'Yii Connect Example - View', 'View', 'manage_options', 'yii-connect-example-view', 'YCExample::actionView');
+        add_submenu_page(null, 'Yii Connect Example - Delete', 'Delete', 'manage_options', 'yii-connect-example-delete', 'YCExample::actionDelete');
     }
 
     /**
@@ -37,11 +37,11 @@ class YiiConnectExample extends YiiConnectPlugin
     public static function registerScripts()
     {
         // css
-        wp_register_style('yii_connect_example.css', YII_CONNECT_EXAMPLE_URL . 'yii_connect_example.css', array(), YII_CONNECT_EXAMPLE_VERSION . '.0');
-        wp_enqueue_style('yii_connect_example.css');
+        wp_register_style('yc_example.css', YC_EXAMPLE_URL . 'yc_example.css', array(), YC_EXAMPLE_VERSION . '.0');
+        wp_enqueue_style('yc_example.css');
         // js
-        wp_register_script('yii_connect_example.js', YII_CONNECT_EXAMPLE_URL . 'yii_connect_example.js', array('jquery'), YII_CONNECT_EXAMPLE_VERSION . '.0');
-        wp_enqueue_script('yii_connect_example.js');
+        wp_register_script('yc_example.js', YC_EXAMPLE_URL . 'yc_example.js', array('jquery'), YC_EXAMPLE_VERSION . '.0');
+        wp_enqueue_script('yc_example.js');
     }
 
     /**

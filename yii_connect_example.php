@@ -22,21 +22,21 @@ if (!function_exists('add_action')) {
     exit;
 }
 
-// ensure YiiConnect is loaded
-if (!defined('YII_CONNECT_VERSION') || !YiiConnect::$loaded) {
+// ensure YC is loaded
+if (!defined('YC_VERSION') || !YC::$loaded) {
     return;
 }
 
 // define constants
-define('YII_CONNECT_EXAMPLE_VERSION', '0.1.0');
-define('YII_CONNECT_EXAMPLE_URL', plugin_dir_url(__FILE__));
-define('YII_CONNECT_EXAMPLE_PATH', plugin_dir_path(__FILE__));
+define('YC_EXAMPLE_VERSION', '0.1.0');
+define('YC_EXAMPLE_URL', plugin_dir_url(__FILE__));
+define('YC_EXAMPLE_PATH', plugin_dir_path(__FILE__));
 
-// load YiiConnectExample
-require_once(YII_CONNECT_EXAMPLE_PATH . 'components/YiiConnectExample.php');
+// load YCExample
+require_once(YC_EXAMPLE_PATH . 'components/YCExample.php');
 
 // set the view path
-YiiConnectExample::$basePath = str_replace('\\', '/', YII_CONNECT_EXAMPLE_PATH);
+YCExample::$basePath = str_replace('\\', '/', YC_EXAMPLE_PATH);
 
 // load the init
-add_action('init', 'YiiConnectExample::init');
+add_action('init', 'YCExample::init');

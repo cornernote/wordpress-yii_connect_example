@@ -30,7 +30,7 @@ function yii_connect_example_init()
     if (defined('YC_EXAMPLE_LOADED')){
         return;
     }
-    if (!(defined(YC_LOADED) && YC_LOADED)){
+    if (!(defined('YC_LOADED') && YC_LOADED)){
         define('YC_EXAMPLE_LOADED', false);
         return ;
     }

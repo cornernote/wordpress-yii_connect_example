@@ -30,11 +30,17 @@ function yii_connect_example_init()
     if (defined('YC_EXAMPLE_LOADED')){
         return;
     }
+    if (!(defined(YC_LOADED) && YC_LOADED)){
+        define('YC_EXAMPLE_LOADED', false);
+        return ;
+    }
     if (!class_exists('YiiConnect') || !YiiConnect::init() || empty(YiiConnect::$loaded)){
         define('YC_EXAMPLE_LOADED', false);
         return;
         //return  new WP_Error('yii_connect', __("Yii Connect example can't work without using Yii Connect"));
     }
+
+
     define('YC_EXAMPLE_LOADED', true);
     // load YCExample
     require_once(YC_EXAMPLE_PATH . 'components/YiiConnectExample.php');

@@ -47,7 +47,7 @@ class YiiConnectExample extends YCPlugin
         add_menu_page('Yii Connect Example', 'Yii Connect Example', 'manage_options', 'yii-connect-example', 'YiiConnectExample::actionIndex', YC_EXAMPLE_URL . 'img/icon-menu.png', '11');
         add_submenu_page('yii-connect-example', 'Create Ticket', 'Create', 'manage_options', 'yii-connect-example-form', 'YiiConnectExample::actionForm');
         add_submenu_page(null, 'Yii Connect Example - View', 'View', 'manage_options', 'yii-connect-example-view', 'YiiConnectExample::actionView');
-        add_submenu_page(null, 'Yii Connect Example - View', 'View', 'manage_options', 'yii-connect-example-test', 'YiiConnectExample::actionTest');
+        add_submenu_page(null, 'Yii Connect Example - Test', 'Test', 'manage_options', 'yii-connect-example-test', 'YiiConnectExample::actionTest');
         add_submenu_page(null, 'Yii Connect Example - Delete', 'Delete', 'manage_options', 'yii-connect-example-delete', 'YiiConnectExample::actionDelete');
     }
 

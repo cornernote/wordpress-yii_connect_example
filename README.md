@@ -1,4 +1,4 @@
-=== Yii Connect Example ===
+# Yii Connect Example
 Contributors: zainengineer, cornernote
 Tags: yii
 Requires at least: 3.0.1
@@ -9,17 +9,17 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/
 
 An example demonstrating integration of Yii directly from your Wordpress site.
 
-== Description ==
+## Description
 
 An example demonstrating integration of Yii directly from your Wordpress site.
 
-== Requires ==
+## Requires
 
 Yii Connect for Wordpress:
 https://github.com/cornernote/wordpress-yii_connect
 
 
-== To Extend ==
+## To Extend
 In YiiConnectExample
 public static function adminMenu()
 add this line

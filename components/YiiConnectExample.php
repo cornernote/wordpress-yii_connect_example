@@ -47,6 +47,7 @@ class YiiConnectExample extends YCPlugin
         add_menu_page('Yii Connect Example', 'Yii Connect Example', 'manage_options', 'yii-connect-example', 'YiiConnectExample::actionIndex', YC_EXAMPLE_URL . 'img/icon-menu.png', '11');
         add_submenu_page('yii-connect-example', 'Create Ticket', 'Create', 'manage_options', 'yii-connect-example-form', 'YiiConnectExample::actionForm');
         add_submenu_page(null, 'Yii Connect Example - View', 'View', 'manage_options', 'yii-connect-example-view', 'YiiConnectExample::actionView');
+        add_submenu_page(null, 'Yii Connect Example - View', 'View', 'manage_options', 'yii-connect-example-test', 'YiiConnectExample::actionTest');
         add_submenu_page(null, 'Yii Connect Example - Delete', 'Delete', 'manage_options', 'yii-connect-example-delete', 'YiiConnectExample::actionDelete');
     }
 
@@ -171,5 +172,18 @@ class YiiConnectExample extends YCPlugin
         wp_redirect(admin_url('admin.php?page=yii-connect-example'));
     }
 
+
+    /**
+     *
+     */
+    public static function actionTest()
+    {
+        // check permissions
+        if (!current_user_can('manage_options')) {
+            wp_die(__('You do not have sufficient permissions to access this page. zz'));
+        }
+
+        echo "<br/> i am here test  File:" . __FILE__ . " line:" . __LINE__ . "<br/>\r\n";
+    }
 
 }

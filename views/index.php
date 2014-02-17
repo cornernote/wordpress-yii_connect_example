@@ -3,7 +3,7 @@
  * @var $ticket Ticket
  */
 
-$url = Yii::app()->createUrl('site/create');
+$url = Yii::app()->createUrl('site/create',array('page'=>'yii-connect-example-form'));
 $link = CHtml::link('Create New',$url);
 
 ?>

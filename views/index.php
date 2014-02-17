@@ -2,13 +2,22 @@
 /**
  * @var $ticket Ticket
  */
+
+$url = Yii::app()->createUrl('site/create');
+$link = CHtml::link('Create New',$url);
+
 ?>
 
 <div class="wrap">
-    <?php screen_icon(); ?>
+    <?php
+    screen_icon();
+    echo $link;
+    ?>
+
     <h2>Yii Connect Example</h2>
 
     <?php
+
     $columns = array();
     $columns[] = array(
         'name' => 'id',

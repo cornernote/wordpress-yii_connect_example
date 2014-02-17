@@ -21,6 +21,11 @@ if (!function_exists('add_action')) {
     echo 'Yii Connect Example cannot be called directly.';
     exit;
 }
+
+if (!function_exists('printr')){
+    require_once dirname(__FILE__) . '/globals.php';
+}
+
 // define constants
 define('YC_EXAMPLE_VERSION', '0.1.0');
 define('YC_EXAMPLE_URL', plugin_dir_url(__FILE__));

@@ -11,8 +11,27 @@ class YiiConnectExample extends YCPlugin
      */
     public static function init()
     {
+        global $wpdb;
         parent::init();
 
+        $table_name = "ticket";
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+
+            $sql = "
+                    CREATE TABLE IF NOT EXISTS `ticket` (
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `name` varchar(255) NOT NULL,
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+                    ";
+
+            Yii::app()->db->getSchema()->refresh();
+            Ticket::model()->refreshMetaData();
+
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            dbDelta( $sql );
+
+        }
         // add admin menu
         if (is_admin()) {
             add_action('admin_menu', 'YiiConnectExample::adminMenu');
